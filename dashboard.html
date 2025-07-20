@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Studio_MA Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <img src="logo.png" alt="Studio_MA Logo" class="logo" />
+      <h2>Welcome to Studio_MA</h2>
+      <p id="userGreeting"></p>
+    </header>
+
+    <section class="actions">
+      <button onclick="location.href='edit-profile.html'">Edit Profile</button>
+      <button onclick="location.href='studio.html'">Book a Studio</button>
+      <button onclick="handleLogout()">Logout</button>
+    </section>
+
+    <section class="branding">
+      <h3>Your Creative Toolkit</h3>
+      <ul>
+        <li>🎥 Rent camera or online class studios</li>
+        <li>💼 Manage bookings and profile</li>
+        <li>💬 Connect with Studio_MA team</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    const username = localStorage.getItem('rememberUser');
+    const greeting = document.getElementById('userGreeting');
+
+    if (username) {
+      greeting.textContent = `Hello, ${username}! Your workspace awaits ✨`;
+    } else {
+      window.location.href = 'auth.html'; // redirect to login if not logged in
+    }
+
+    function handleLogout() {
+      localStorage.removeItem('rememberUser');
+      window.location.href = 'auth.html';
+    }
+  </script>
+</body>
+</html>
