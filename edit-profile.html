@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Profile – Studio_MA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Edit Your Profile</h2>
+    <form id="profileForm">
+      <input type="text" id="fullName" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="text" id="phone" placeholder="Contact Number" required />
+      <button type="submit">Save Changes</button>
+      <p id="statusMessage"></p>
+    </form>
+
+    <button onclick="goBack()">← Back to Dashboard</button>
+  </div>
+
+  <script>
+    const username = localStorage.getItem('rememberUser');
+    const form = document.getElementById('profileForm');
+    const status = document.getElementById('statusMessage');
+
+    if (!username) {
+      window.location.href = 'auth.html';
+    }
+
+    // Load saved profile if available
+    const profileKey = `${username}_profile`;
+    const savedProfile = JSON.parse(localStorage.getItem(profileKey));
+
+    if (savedProfile) {
+      document.getElementById('fullName').value = savedProfile.fullName || '';
+      document.getElementById('email').value = savedProfile.email || '';
+      document.getElementById('phone').value = savedProfile.phone || '';
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      const updatedProfile = { fullName, email, phone };
+      localStorage.setItem(profileKey, JSON.stringify(updatedProfile));
+      status.textContent = 'Profile updated successfully ✅';
+    });
+
+    function goBack() {
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+</body>
+</html>

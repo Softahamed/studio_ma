@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmation – Studio_MA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>✅ Booking Confirmed</h2>
+    <p id="bookingSummary">Loading booking details...</p>
+
+    <button onclick="window.location.href='studio.html'">← Book Another Studio</button>
+    <button onclick="window.location.href='dashboard.html'">Return to Dashboard</button>
+  </div>
+
+  <script>
+    // Retrieve last booking (simulate one from localStorage)
+    let latestBookingId = null;
+
+    for (let key in localStorage) {
+      if (key.startsWith('booking_')) {
+        latestBookingId = key; // last one gets stored
+      }
+    }
+
+    const summary = document.getElementById('bookingSummary');
+    if (latestBookingId) {
+      const booking = JSON.parse(localStorage.getItem(latestBookingId));
+      summary.innerHTML = `
+        <strong>Studio:</strong> ${booking.studio} <br/>
+        <strong>Date:</strong> ${booking.date} <br/>
+        <strong>Time:</strong> ${booking.time} <br/>
+        <strong>Notes:</strong> ${booking.notes || '—'} <br/>
+        <strong>Booking ID:</strong> ${booking.id} <br/>
+        <em>Booked by:</em> ${booking.user}
+      `;
+    } else {
+      summary.textContent = 'No recent booking found.';
+    }
+  </script>
+</body>
+</html>

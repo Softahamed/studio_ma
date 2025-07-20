@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Studio – Studio_MA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Book Your Studio</h2>
+
+    <!-- Camera Studio Form -->
+    <form onsubmit="bookStudio(event, 'Camera Studio')">
+      <h3>📷 Camera Studio</h3>
+      <label>Date:</label>
+      <input type="date" id="cameraDate" required />
+
+      <label>Start Time:</label>
+      <select id="cameraStart" required></select>
+
+      <label>End Time:</label>
+      <select id="cameraEnd" required></select>
+
+      <textarea placeholder="Notes (optional)"></textarea>
+      <button type="submit">Book Camera Studio</button>
+    </form>
+
+    <!-- Online Class Studio Form -->
+    <form onsubmit="bookStudio(event, 'Online Class Studio')">
+      <h3>💻 Online Class Studio</h3>
+      <label>Date:</label>
+      <input type="date" id="onlineDate" required />
+
+      <label>Duration:</label>
+      <select id="onlineDuration" required>
+        <option value="">Select Duration</option>
+        <option value="2">2 Hours</option>
+        <option value="4">4 Hours</option>
+      </select>
+
+      <label>Start Time:</label>
+      <select id="onlineStart" required></select>
+
+      <textarea placeholder="Notes (optional)"></textarea>
+      <button type="submit">Book Online Class Studio</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

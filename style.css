@@ -1,0 +1,147 @@
+/* 🌟 Universal Reset & Typography */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1c1c1c, #333);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+h1, h2, h3 {
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* 🔳 Containers */
+.auth-container,
+.dashboard-container,
+.landing-container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+/* 🖼️ Logo Styling */
+.logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+/* 📑 Form Elements */
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  background-color: #00aaff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0088cc;
+}
+
+/* ✅ Tab Switching */
+.tab-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.tab-section button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.tab-section button.active {
+  background-color: #00aaff;
+}
+
+/* 🔒 Auth Sections */
+.form-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-message {
+  color: #ff4f4f;
+  font-size: 0.9rem;
+}
+
+/* 👤 Branding & Dashboard Blocks */
+.branding,
+.studio-card,
+#bookingSummary {
+  background-color: #2e2e2e;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.branding ul,
+.studio-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.branding li,
+.studio-card li {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+/* ✨ Landing Page Specific */
+.landing-container header h1 {
+  font-size: 3rem;
+}
+
+.landing-container header p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.cta-section button {
+  margin-top: 20px;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* 🎬 Booking Summary */
+#bookingSummary {
+  line-height: 1.6;
+}
